@@ -1,33 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
-	<meta http-equiv="Content-type" content=" Access-Control-Allow-Origin: '*' "/>
-	<meta http-equiv="Content-type" content="Access-Control-Allow-Origin: 'http://pillar.pilon.co.uk:82' "/>
-	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no"/>
-	<meta name="apple-mobile-web-app-capable" content="yes"/>
-	<title>Tablet app</title>
 
-<!--<script src="http://maps.google.com/maps/api/js?v=3&amp;sensor=false"></script>
-<script type="text/javascript" src="http://openlayers.org/dev/OpenLayers.js"></script>
--->
-
-<script src="http://maps.google.com/maps/api/js?v=3&amp;sensor=false"></script>
- <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
-<script type="text/javascript" src="js/AnyChart.js"></script>
-<script type="text/javascript" src="js/AnyChartHTML5.js"></script>
-<script type="text/javascript" src="js/AnyGant.js"></script>		
- <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.0/jquery.min.js"></script>
-<script type="text/javascript" src="http://download.dojotoolkit.org/release-1.9.1/dojo-release-1.9.1/dojox/mobile/deviceTheme.js" data-dojo-config="mblUserAgent: 'Custom',mblThemeFiles: ['base','FixedSplitter','GridLayout','TabBar','Accordion','Button','Opener']"></script>
-<script type="text/javascript" src="http://download.dojotoolkit.org/release-1.9.1/dojo-release-1.9.1/dojo/dojo.js" data-dojo-config="async: true, parseOnLoad: true"></script>
-			
-<link rel="stylesheet" href="css/style_.css"/>	
-<link rel="stylesheet" href="css/gantt.css"/>	
-<link rel="stylesheet" href="css/legend.css"/>	
-</head>
-<body>
-
-<script>
 var xmlPrj="";
 var xmlReturn="";
 function xmlToString(xmlData) 
@@ -85,7 +56,7 @@ $(function() {
 
 var map;
 //response.writeHead(200, { 'Content-Type': contentType, 'Access-Control-Allow-Origin': '*' });
-var lightBlue=['#a1cee1'];//,'#a1cee1','#9fcee1','#a0cde0','#9fcee1','#9ecde0','#00415d','#a1cee1','#9ecbde','#a0cde0']; //#a3d2e5
+//var lightBlue=['#00415d','#a1cee1','#9fcee1','#a0cde0','#9fcee1','#9ecde0','#00415d','#a1cee1','#9ecbde','#a0cde0']; //#a3d2e5
 var darkerBlue=['#00415d'];//['#010101','#010101','#010101','#418794','#00000','#448996','#488d9a','#45909d','#418693','#458a96'];
 //var green=['#34d04a','#3cd752','#3ed253','#43c455','#42cb55','#42bf54','#40c853','#40c84a','#53d95d','#54d05d'];
 //var lightGreen=['#1cf46d','#1ef16e','#1ff16e','#1eed6c','#21ed6e','#22ed6f','#22ec6e','#25ec70','#22ea6d','#23ec6f'];
@@ -810,7 +781,3 @@ function(declare,_WidgetBase,dom,domConstruct,ready,on,connect,registry,compat,t
 	});
 	
 });
-
-</script>
-</body>
-</html>	

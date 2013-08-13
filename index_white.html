@@ -13,7 +13,7 @@
 -->
 
 <script src="http://maps.google.com/maps/api/js?v=3&amp;sensor=false"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+ <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
 <script type="text/javascript" src="js/AnyChart.js"></script>
 <script type="text/javascript" src="js/AnyChartHTML5.js"></script>
 <script type="text/javascript" src="js/AnyGant.js"></script>		
@@ -30,9 +30,6 @@
 <script>
 var xmlPrj="";
 var xmlReturn="";
-</script>
-
-<script>
 function xmlToString(xmlData) 
 { 
     var xmlString;
@@ -88,18 +85,18 @@ $(function() {
 
 var map;
 //response.writeHead(200, { 'Content-Type': contentType, 'Access-Control-Allow-Origin': '*' });
-var lightBlue=['#a3d2e5','#a1cee1','#9fcee1','#a0cde0','#9fcee1','#9ecde0','#a3d0e3','#a1cee1','#9ecbde','#a0cde0'];
-var darkerBlue=['#76adc4','#41919f','#80b6cd','#418794','#438e9b','#448996','#488d9a','#45909d','#418693','#458a96'];
-var green=['#34d04a','#3cd752','#3ed253','#43c455','#42cb55','#42bf54','#40c853','#40c84a','#53d95d','#54d05d'];
-var lightGreen=['#1cf46d','#1ef16e','#1ff16e','#1eed6c','#21ed6e','#22ed6f','#22ec6e','#25ec70','#22ea6d','#23ec6f'];
-var orange=['#ecb93e','#e7b53c','#e7b43a','#e5b339','#e3b23b','#e1af38','#dcac37','#deae39','#d9a936','#d9aa38'];
-var colorArray=lightGreen.concat(lightBlue).concat(orange);
+//var lightBlue=['#00415d','#a1cee1','#9fcee1','#a0cde0','#9fcee1','#9ecde0','#00415d','#a1cee1','#9ecbde','#a0cde0']; //#a3d2e5
+var darkerBlue=['#00415d'];//['#010101','#010101','#010101','#418794','#00000','#448996','#488d9a','#45909d','#418693','#458a96'];
+//var green=['#34d04a','#3cd752','#3ed253','#43c455','#42cb55','#42bf54','#40c853','#40c84a','#53d95d','#54d05d'];
+//var lightGreen=['#1cf46d','#1ef16e','#1ff16e','#1eed6c','#21ed6e','#22ed6f','#22ec6e','#25ec70','#22ea6d','#23ec6f'];
+//var orange=['#ecb93e','#e7b53c','#e7b43a','#e5b339','#e3b23b','#e1af38','#dcac37','#deae39','#d9a936','#d9aa38'];
+//var colorArray=lightGreen.concat(lightBlue).concat(orange);
 var pX=0;
 var pY=0;
 var code=" ";
 var currId=0;
 var currCode=" ";
-var colorArray=lightBlue ;
+var colorArray=darkerBlue ;
 
 var viewApp;
 var backButton;
@@ -211,7 +208,7 @@ function(declare,_WidgetBase,dom,domConstruct,ready,on,connect,registry,compat,t
 		buttonMap = new dojox.mobile.TabBarButton({id:"mapB",moveTo:"map",label:"Map",transition:"slide"});
 		viewkpisn=new dojox.mobile.SwapView({id:"kpis"});	
 		paneCs = new dijit.layout.ContentPane({id:"cs",	label: "Customer Satisfaction",	style:{width:"100%","margin-left":"50px"}	});
-		paneHs = new dijit.layout.ContentPane({id:"hs",label: "Health & Safety",style:{width:"100%","margin-left":"50px",height:"150px",display:"block"}});
+		paneHs = new dijit.layout.ContentPane({id:"hs",label: "Health &amp; Safety",style:{width:"100%","margin-left":"50px",display:"block"}});
 		panePeople = new dijit.layout.ContentPane({id:"People",label: "People",	style:{width:"100%","margin-left":"50px"}});	
 		paneOperations = new dijit.layout.ContentPane({id:"Operations",label: "Operations",style:{width:"100%","margin-left":"50px"}});	
 		paneEfficiency = new dijit.layout.ContentPane({id:"Efficiency",label: "Efficiency",style:{width:"100%","margin-left":"50px"}});	
@@ -227,93 +224,117 @@ function(declare,_WidgetBase,dom,domConstruct,ready,on,connect,registry,compat,t
 		
 		AnyChart.renderingType = anychart.RenderingType.SVG_PREFERRED; //.FLASH_PREFERRED; //
 		var chartCs = new AnyChart();
-		chartCs.width = 250;
-		chartCs.height = 150;
+		chartCs.width = 300;
+		chartCs.height = 200;
 		chartCs.setXMLFile('http://pillar.pilon.co.uk:82/reports/KPIG/chart/1.7prj'+idPj+'sm0.xml');
 		chartCs.write("cs");		
 		
 		var chartHs1 = new AnyChart();
-		chartHs1.width = 250;
-		chartHs1.height = 150;
+		chartHs1.width = 300;
+		chartHs1.height = 200;
 		chartHs1.setXMLFile('http://pillar.pilon.co.uk:82/reports/KPIG/chart/2.5prj'+idPj+'sm0.xml');
 		chartHs1.write("hs");		
 		var chartHs2 = new AnyChart();
-		chartHs2.width = 250;
-		chartHs2.height = 150;
+		chartHs2.width = 300;
+		chartHs2.height = 200;
 		chartHs2.setXMLFile('http://pillar.pilon.co.uk:82/reports/KPIG/chart/2.7prj'+idPj+'sm0.xml');
 		chartHs2.write("hs");		
 		var chartHs3 = new AnyChart();
-		chartHs3.width = 250;
-		chartHs3.height = 150;
+		chartHs3.width = 300;
+		chartHs3.height = 200;
 		chartHs3.setXMLFile('http://pillar.pilon.co.uk:82/reports/KPIG/chart/2.6prj'+idPj+'sm0.xml');
 		chartHs3.write("hs");		
 		
 		var chartPeople1 = new AnyChart();
-		chartPeople1.width = 250;
-		chartPeople1.height = 150;
+		chartPeople1.width = 300;
+		chartPeople1.height = 200;
 		chartPeople1.setXMLFile('http://pillar.pilon.co.uk:82/reports/KPIG/chart/3.3prj'+idPj+'sm0.xml');
 		chartPeople1.write("People");		
 		var chartPeople2 = new AnyChart();
-		chartPeople2.width = 250;
-		chartPeople2.height = 150;
+		chartPeople2.width = 300;
+		chartPeople2.height = 200;
 		chartPeople2.setXMLFile('http://pillar.pilon.co.uk:82/reports/KPIG/chart/3.7prj'+idPj+'sm0.xml');
 		chartPeople2.write("People");		
 		var chartPeople3= new AnyChart();
-		chartPeople3.width = 250;
-		chartPeople3.height = 150;
+		chartPeople3.width = 300;
+		chartPeople3.height = 200;
 		chartPeople3.setXMLFile('http://pillar.pilon.co.uk:82/reports/KPIG/chart/3.6prj'+idPj+'sm0.xml');
 		chartPeople3.write("People");			
 		
 		var chartOperations1 = new AnyChart();
-		chartOperations1.width = 250;
-		chartOperations1.height = 150;
+		chartOperations1.width = 300;
+		chartOperations1.height = 200;
 		chartOperations1.setXMLFile('http://pillar.pilon.co.uk:82/reports/KPIG/chart/2.1prj'+idPj+'sm0.xml');
 		chartOperations1.write("Operations");		
 		var chartOperations2 = new AnyChart();
-		chartOperations2.width = 250;
-		chartOperations2.height = 150;
+		chartOperations2.width = 300;
+		chartOperations2.height = 200;
 		chartOperations2.setXMLFile('http://pillar.pilon.co.uk:82/reports/KPIG/chart/2.8prj'+idPj+'sm0.xml');
 		chartOperations2.write("Operations");		
 		var chartOperations3 = new AnyChart();
-		chartOperations3.width = 250;
-		chartOperations3.height = 150;
+		chartOperations3.width = 300;
+		chartOperations3.height = 200;
 		chartOperations3.setXMLFile('http://pillar.pilon.co.uk:82/reports/KPIG/chart/2.9prj'+idPj+'sm0.xml');
 		chartOperations3.write("Operations");		
 		
 		var chartEfficiency1 = new AnyChart();
-		chartEfficiency1.width = 250;
-		chartEfficiency1.height = 150;
+		chartEfficiency1.width = 300;
+		chartEfficiency1.height = 200;
 		chartEfficiency1.setXMLFile('http://pillar.pilon.co.uk:82/reports/KPIG/chart/4.4prj'+idPj+'sm0.xml');
 		chartEfficiency1.write("Efficiency");		
 		var chartEfficiency2 = new AnyChart();
-		chartEfficiency2.width = 250;
-		chartEfficiency2.height = 150;
+		chartEfficiency2.width = 300;
+		chartEfficiency2.height = 200;
 		chartEfficiency2.setXMLFile('http://pillar.pilon.co.uk:82/reports/KPIG/chart/materials-usage.xml');
 		chartEfficiency2.write("Efficiency");		
 		var chartEfficiency3 = new AnyChart();
-		chartEfficiency3.width = 250;
-		chartEfficiency3.height = 150;
+		chartEfficiency3.width = 300;
+		chartEfficiency3.height = 200;
 		chartEfficiency3.setXMLFile('http://pillar.pilon.co.uk:82/reports/KPIG/chart/project-cashflow.xml');
 		chartEfficiency3.write("Efficiency");
-		// console.log("write chart");
+		chartEfficiency1.addEventListener('render', function(){window.scrollBy(0,1);});	
+		unsetCharts();
 	}; 	
+	unsetCharts=function()
+	{
+		delete chartCs;
+		delete chartHs1;
+		delete chartHs2;
+		delete chartHs3;
+		delete chartPeople1;
+		delete chartPeople2;
+		delete chartPeople3;
+		delete chartOperations1;
+		delete chartOperations2;
+		delete chartOperations3;
+		delete chartEfficiency1;
+		delete chartEfficiency2;
+		delete chartEfficiency3;
+	}
+	unsetPanes=function()
+	{	
+		if (paneCs) paneCs.destroy();
+		if (paneHs) paneHs.destroy();
+		if (panePeople) panePeople.destroy();
+		if (paneOperations) paneOperations.destroy();
+		if (paneEfficiency) paneEfficiency.destroy();
+	}	
 	writeFlags=function(idPb)
 	{
-		unsetFlags();
-		paneFlags = new dijit.layout.ContentPane({id:"FlagsChart",label: "Flags",style:{width:"100%","text-align":"center"}});	
-		viewFlags.addChild(paneFlags);
-		console.log("writeFlags de: "+idPb);
-		AnyChart.renderingType = anychart.RenderingType.SVG_PREFERRED; //.FLASH_PREFERRED; //
+		unsetFlags();	
+		paneFlags = new dijit.layout.ContentPane({id:"FlagsChart",label: "Flags",style:{width:"100%","text-align":"center"}});			
+		viewFlags.addChild(paneFlags);	
 		var flags = new AnyChart();
 		flags.id="id_flag_chart";
 		flags.bgColor="white";
 		flags.width = 700;
 		flags.height = 400;
+		flags.addEventListener('render', function(){window.focus();});		
 		flags.setXMLFile('http://pillar.pilon.co.uk:82/reports/KPIG/kpiFlagsXml.php?projID='+idPb);
-		flags.write("FlagsChart");
-		console.log("id: "+document.getElementById("FlagsChart"));
-		console.log("write flags");
+		setTimeout(function(){flags.write("FlagsChart");},100);
+		flags.addEventListener('render', function(){window.scrollBy(0,-1);});
 	}; 
+
 	unsetFlags=function()
 	{
 		console.log("unset flag");
@@ -500,7 +521,6 @@ function(declare,_WidgetBase,dom,domConstruct,ready,on,connect,registry,compat,t
 				$("#prTeamB").removeClass("mblTabBarButtonSelected");
 				$("#mapB").removeClass("mblTabBarButtonSelected");
 				placeLegend();	
-				// unsetFlags();
 			});			
 
 		
@@ -542,21 +562,18 @@ function(declare,_WidgetBase,dom,domConstruct,ready,on,connect,registry,compat,t
 				$("#prTeamB").removeClass("mblTabBarButtonSelected");
 				$("#mapB").removeClass("mblTabBarButtonSelected");
 				destroyLegend();
-				// unsetFlags();
 			});	
 		
 //view flags	
-			
 			connect.connect(viewFlags, "onBeforeTransitionIn", null,
-				function(moveTo, dir, transition, context, method){
-					
+				function(moveTo, dir, transition, context, method){				
 					$("#kpisB").removeClass("mblTabBarButtonSelected");	
 					$("#progressB").removeClass("mblTabBarButtonSelected");
 					$("#prTeamB").removeClass("mblTabBarButtonSelected");
 					$("#mapB").removeClass("mblTabBarButtonSelected");
 					destroyLegend();
-					//unsetFlags();
-					writeFlags(id);
+					console.log("vom scrie flags din click");
+					setTimeout(function(){writeFlags(id);},100);
 			});	
 			viewApp.addChild(viewFlags);		
 //view project team	
@@ -571,7 +588,6 @@ function(declare,_WidgetBase,dom,domConstruct,ready,on,connect,registry,compat,t
 				$("#mapB").removeClass("mblTabBarButtonSelected");
 				$("#dojox_mobile_ScrollableView_1").css("height","1600px");
 				destroyLegend();
-				// unsetFlags();
 				$("#prTeamScroll").css("height","100%");
 			});	
 
@@ -589,7 +605,6 @@ function(declare,_WidgetBase,dom,domConstruct,ready,on,connect,registry,compat,t
 				$("#flagsB").removeClass("mblTabBarButtonSelected");
 				$("#prTeamB").removeClass("mblTabBarButtonSelected");
 				destroyLegend();
-				
 				console.log("apelare init map:currCode,pX,pY: "+currCode+","+pX+","+pY); 
 				setTimeout(function(){init_map(currCode,pX,pY);}, 1000);					
 			});	
@@ -615,8 +630,8 @@ function(declare,_WidgetBase,dom,domConstruct,ready,on,connect,registry,compat,t
 				}
 				if (view.id=='flags')
 				{
-					
-					writeFlags(id);	
+					console.log("vom scrie flags din swipe");
+					setTimeout(function(){writeFlags(id);},100);
 				}
 				if (view.id=='map')
 				{
@@ -704,6 +719,7 @@ function(declare,_WidgetBase,dom,domConstruct,ready,on,connect,registry,compat,t
 				// $("#footer").css("z-index","1");
 				// console.log("destroying viewApp");
 				$("#projPlace").text(" ");
+				unsetPanes();
 				viewApp.destroyRecursive();
 				topicSubscribe.remove();
 			});			
@@ -716,7 +732,9 @@ function(declare,_WidgetBase,dom,domConstruct,ready,on,connect,registry,compat,t
 			// console.log("xml :"+xml);
 			var xmldom = dojox.xml.DomParser.parse(xmlPrj);
 			//var docNode = xmldom.documentElement;				
-			
+			connect.connect(viewMeniu, "onAfterTransitionIn", null, function(moveTo, dir, transition, context, method){
+				$(".dijitContentPane").css("height","140px");
+			});			
 			// var deferred = request(xmldom, {
 				// "preventCache": false,
 				// "handleAs": "xml"
@@ -754,7 +772,7 @@ function(declare,_WidgetBase,dom,domConstruct,ready,on,connect,registry,compat,t
 							pY=data[i].getAttribute('p_y');
 							info+="<p><b>"+code+"</b>"+"<br>"+address+"<br>"+sDt+"<br>"+prop+"</p>";
 							var details=info;
-							var panou = new dijit.layout.ContentPane({id:panouId,"code":code,"pX":pX,"pY":pY,"idProject":idProject});
+							var panou = new dijit.layout.ContentPane({id:panouId,"code":code,"pX":pX,"pY":pY,"idProject":idProject,"class":"menuItem"});
 							  on(panou, "click", function(e,panou){
 								id=this.id;
 								var widget = registry.byId(id);
@@ -770,12 +788,11 @@ function(declare,_WidgetBase,dom,domConstruct,ready,on,connect,registry,compat,t
 								*/
 
 								connect.connect(viewApp, "onAfterTransitionIn", null, function(moveTo, dir, transition, context, method){
-									writeCharts(idProject);
-									
+									setTimeout(function(){writeCharts(idProject);},100);
 									placeLegend();
 									//setTimeout(function(){init_map(currCode,pX,pY);}, 1000);	
-									$(".dijitContentPane").css("display","block");
-									$(".dijitContentPane").css("height","150px");
+									$(".dijitContentPane.mblAccordionPane").css("display","block");
+									$(".dijitContentPane.mblAccordionPane").css("height","200px");
 								});									
 								var opts = {moveTo: "view2", transition: "slide", transitionDir: 1};
 								var ev = new dojox.mobile.TransitionEvent(widget.domNode, opts);
@@ -783,12 +800,13 @@ function(declare,_WidgetBase,dom,domConstruct,ready,on,connect,registry,compat,t
 							  });
 							var navi=(new DivWidget("line",randomColor,details,"idNavi")).placeAt(panou);
 							grid1.addChild(panou);
+	
 					}	
 				}
 			}
 		splitter.startup();
 		splitter.placeAt(document.body);	
-		$('#header').append('<div><div style="float:left"><img src="img/logobw.png" class="" align="" id="ImgWidget_0" widgetid="ImgWidget_0"><div id="DivWidget_0" class="logoP"  widgetid="DivWidget_0">Refurbishment and building specialist</div></div><div id="projPlace" style="float:left;margin-left:27%;position:relative;top:20px;">'+currCode+'</div><div style="float:right"><img src="img/keepmoat_alb_mic.jpg" class="" align="right" id="ImgWidget_1" widgetid="ImgWidget_1"></div></div>');						
+		$('#header').append('<div><div style="float:left"><img src="img/keepmoat_alb_mic.jpg" class="" align="" id="ImgWidget_1" widgetid="ImgWidget_1"></div><div id="projPlace" style="float:left;margin-left:27%;position:relative;top:20px;">'+currCode+'</div><div style="float:right"><img src="img/logobw.png" class="" align="right" id="ImgWidget_0" widgetid="ImgWidget_0"></div></div>');						
 	});
 	
 });
